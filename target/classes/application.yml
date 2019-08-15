@@ -1,0 +1,43 @@
+#app
+server:
+    port: 8000
+
+#spring
+spring:
+  aop:
+    proxy-target-class: true
+    
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    
+  datasource:
+    platform: h2
+    schema: classpath:sql/schema.sql
+    data: classpath:sql/data.sql
+    
+  application:
+    name: microservice-simple-provider-user
+
+management:
+  security:
+    enabled: false
+    
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://yp:whiletrue@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+##logging
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
