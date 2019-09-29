@@ -1,6 +1,6 @@
 #app
 server:
-    port: 8000
+    port: 8002
 
 #spring
 spring:
